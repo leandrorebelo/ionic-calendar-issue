@@ -1,0 +1,23 @@
+:host ::ng-deep {
+  .monthview-container {
+    height: auto !important;
+  }
+
+  .event-detail-container {
+    display: none;
+  }
+
+  .text-muted {
+    border: none;
+  }
+}
+
+.arrow-button {
+  height: 20px;
+}
+
+.calendar-header {
+  padding: 20px;
+  color: var(--ion-color-light);
+  background-color: var(--ion-color-primary);
+}

@@ -1,0 +1,63 @@
+<header class="calendar-header">
+  <section>
+    <ion-text style="font-size: 20px;">
+      {{ this.dateSelected.getFullYear() }}
+    </ion-text>
+  </section>
+  <section style="font-size: 38px; font-weight: 500;">
+    <ion-text class="ion-text-capitalize">
+      {{ getDay() }}
+    </ion-text>
+    <ion-text class="ion-text-capitalize">
+      {{ getMonth() }}
+    </ion-text>
+    <ion-text>
+      {{ this.dateSelected.getDate() }}
+    </ion-text>
+  </section>
+</header>
+
+<ion-content>
+  <ion-row>
+    <!-- Move back one screen of the slides -->
+    <ion-col size="2">
+      <ion-button class="arrow-button" fill="clear" (click)="back()">
+        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+
+    <ion-col size="8" class="ion-text-center">
+      <ion-text>{{ viewTitle }}</ion-text>
+    </ion-col>
+
+    <!-- Move forward one screen of the slides -->
+    <ion-col size="2">
+      <ion-button class="arrow-button" fill="clear" (click)="next()">
+        <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <calendar
+    [autoSelect]="true"
+    [eventSource]="eventSource"
+    [calendarMode]="calendar.mode"
+    [currentDate]="calendar.currentDate"
+    (onTitleChanged)="onViewTitleChanged($event)"
+    (onTimeSelected)="onTimeSelected($event)"
+    step="30"
+  >
+  </calendar>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDismiss()" size="small" fill="outline" shape="round">
+        Click me
+      </ion-button>
+      <ion-button (click)="onDismiss()" color="primary" size="small" shape="round">
+        Click me
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
